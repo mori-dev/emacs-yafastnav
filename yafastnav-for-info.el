@@ -155,10 +155,14 @@
                 (<= (point) bottom)))
         (save-excursion
           (goto-char (match-beginning 0))
-            (when (and (get-text-property (point) 'face)
+            ;;追加
+            (when (and (or
+                        (get-text-property (point) 'face)
+                        (get-text-property (point) 'face))
                        (or
                         (face-equal 'info-xref-visited (get-text-property (point) 'face))
-                        (face-equal 'info-xref (get-text-property (point) 'face))))
+                        (face-equal 'info-xref (get-text-property (point) 'face))
+                        (face-equal 'info-header-xref (get-text-property (point) 'face))))
               (add-to-list 'ls
                            (list
                             (nth index yafastnav-info-shortcut-keys)
@@ -181,7 +185,7 @@
     (if ret
         (progn
          (goto-char (nth 1 ret))
-         (Info-follow-nearest-node)
+         (Info-follow-nearest-node)  ;追加
          )
       (message "none candidate."))
     (dolist (o ols)
