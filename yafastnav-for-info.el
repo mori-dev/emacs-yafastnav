@@ -63,7 +63,7 @@
   :prefix "yafastnav-info-" :group 'convenience)
 
 (defcustom yafastnav-info-regex
-  "\\([a-zA-Z_?]+[a-zA-Z0-9_-]+\\)"
+  "\\([一-龠ぁ-んァ-ヶｦ-ﾟー0-9a-zA-Z_?]+[一-龠ぁ-んァ-ヶｦ-ﾟーa-zA-Z0-9_-]+\\)"
   "リストアップする要素の指定用正規表現"
   :type 'regexp
   :group 'yafastnav)
